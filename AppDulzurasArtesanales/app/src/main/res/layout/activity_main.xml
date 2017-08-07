@@ -15,11 +15,12 @@
         tools:layout_editor_absoluteY="8dp">
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/LblRecuperar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:autoLink="web"
             android:linksClickable="true"
             android:text="Recuperar contraseña"
             android:textAlignment="center"
@@ -47,6 +48,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="56dp"
+            android:onClick="aPantallaProductos"
             android:text="Ingresar"
             android:textAlignment="center"
             android:textSize="18sp"
@@ -85,6 +87,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="31dp"
+            android:autoLink="web"
             android:linksClickable="true"
             android:text="¿Usuario Nuevo? Ingrese aquí"
             android:textAlignment="center"
