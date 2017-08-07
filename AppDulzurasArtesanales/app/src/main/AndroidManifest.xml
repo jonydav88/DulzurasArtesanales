@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PantallaProductos"></activity>
+        <activity android:name=".PantallaProductos" android:label="@string/app_name_PantallaProductos"></activity>
     </application>
 
 </manifest>

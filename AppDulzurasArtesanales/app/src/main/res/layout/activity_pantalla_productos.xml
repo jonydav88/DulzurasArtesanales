@@ -11,6 +11,7 @@
     <RelativeLayout
         android:layout_width="368dp"
         android:layout_height="495dp"
+        android:layout_margin="50dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
 
@@ -19,11 +20,14 @@
             android:layout_height="358dp"
             android:alwaysDrawnWithCache="false"
             android:orientation="horizontal"
+            android:layout_margin="30dp"
             android:theme="@style/Base.Animation.AppCompat.DropDownUp"
             tools:layout_editor_absoluteX="42dp"
             tools:layout_editor_absoluteY="65dp"
+            android:stretchColumns="3"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tableLayout">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -32,28 +36,24 @@
 
                 <ImageButton
                     android:id="@+id/imageButton5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
                     app:srcCompat="@android:drawable/alert_dark_frame" />
 
                 <ImageButton
                     android:id="@+id/imageButton4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
                     app:srcCompat="@android:drawable/alert_dark_frame" />
 
                 <ImageButton
                     android:id="@+id/imageButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
                     app:srcCompat="@android:drawable/alert_dark_frame" />
-
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/alert_dark_frame" />
-
             </TableRow>
 
             <TableRow
@@ -61,16 +61,35 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
+                    app:srcCompat="@android:drawable/alert_dark_frame" />
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
+                    app:srcCompat="@android:drawable/alert_dark_frame" />
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
+                    app:srcCompat="@android:drawable/alert_dark_frame" />
+
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
         </TableLayout>
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

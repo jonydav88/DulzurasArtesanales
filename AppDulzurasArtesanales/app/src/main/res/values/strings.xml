@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Dulzuras Artesanales</string>
+    <string name="app_name_PantallaProductos">Productos</string>
+    <string name="app_name_PantallaPrincipal">Menú</string>
+    <string name="app_name_PantallaVariedad">Variedad</string>
+    <string name="app_name_PantallaPedidos">Pedidos</string>
 </resources>
