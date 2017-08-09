@@ -24,25 +24,25 @@ package com.appDulzurasArtesanales.expandablelist.adapters;
 public class ExpandableListAdapter extends BaseExpandableListAdapter
 {
     private Activity context;
-    private Map<String, List<String>> laptopCollections;
-    private List<String> laptops;
+    private Map<String, List<String>> MenuCollections;
+    private List<String> MenuItem;
 
-    public ExpandableListAdapter(Activity context, List<String> laptops, Map<String, List<String>> laptopCollections)
+    public ExpandableListAdapter(Activity context, List<String> MenuItems, Map<String, List<String>> itemCollections)
     {
         this.context = context;
-        this.laptopCollections = laptopCollections;
-        this.laptops = laptops;
+        this.MenuCollections = itemCollections;
+        this.MenuItem = MenuItems;
     }
 
         public Object getChild(int groupPosition, int childPosition)
-        {return laptopCollections.get(laptops.get(groupPosition)).get(childPosition);}
+        {return MenuCollections.get(MenuItem.get(groupPosition)).get(childPosition);}
 
         public long getChildId(int groupPosition, int childPosition) {return childPosition;}
 
         public View getChildView(final int groupPosition, final int childPosition,
             boolean isLastChild, View convertView, ViewGroup parent)
         {
-            final String laptop = (String) getChild(groupPosition, childPosition);
+            final String MenuItem = (String) getChild(groupPosition, childPosition);
             LayoutInflater inflater = context.getLayoutInflater();
 
             if (convertView == null)
@@ -79,15 +79,15 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter
                 }
             });*/
 
-            item.setText(laptop);
+            item.setText(MenuItem);
             return convertView;
         }
 
-        public int getChildrenCount(int groupPosition) {return laptopCollections.get(laptops.get(groupPosition)).size();}
+        public int getChildrenCount(int groupPosition) {return MenuCollections.get(MenuItem.get(groupPosition)).size();}
 
-        public Object getGroup(int groupPosition) {return laptops.get(groupPosition);}
+        public Object getGroup(int groupPosition) {return MenuItem.get(groupPosition);}
 
-        public int getGroupCount() {return laptops.size();}
+        public int getGroupCount() {return MenuItem.size();}
 
         public long getGroupId(int groupPosition) {return groupPosition;}
 

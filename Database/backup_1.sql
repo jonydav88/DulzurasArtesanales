@@ -77,6 +77,31 @@ LOCK TABLES `envio` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `estado_pedido`
+--
+
+DROP TABLE IF EXISTS `estado_pedido`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `estado_pedido` (
+  `id` int(11) NOT NULL,
+  `descripcion` varchar(45) DEFAULT NULL,
+  `imageLink` varchar(180) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `estado_pedido`
+--
+
+LOCK TABLES `estado_pedido` WRITE;
+/*!40000 ALTER TABLE `estado_pedido` DISABLE KEYS */;
+INSERT INTO `estado_pedido` VALUES (1,'Solicitado',NULL),(2,'En elaboración',NULL),(3,'En camino',NULL),(4,'Entregado',NULL),(5,'Cancelado',NULL);
+/*!40000 ALTER TABLE `estado_pedido` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `forma_de_pago`
 --
 
@@ -203,6 +228,7 @@ DROP TABLE IF EXISTS `producto`;
 CREATE TABLE `producto` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(85) DEFAULT NULL,
+  `imageLink` varchar(180) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='															';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -213,7 +239,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,'Alfajores'),(2,'Cubanitos'),(3,'Muffins'),(4,'Chocotorta'),(5,'Torta de coco');
+INSERT INTO `producto` VALUES (1,'Alfajores',NULL),(2,'Cubanitos',NULL),(3,'Muffins',NULL),(4,'Chocotorta',NULL),(5,'Tarta de coco',NULL);
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -237,7 +263,7 @@ CREATE TABLE `producto_detalle` (
 
 LOCK TABLES `producto_detalle` WRITE;
 /*!40000 ALTER TABLE `producto_detalle` DISABLE KEYS */;
-INSERT INTO `producto_detalle` VALUES (1,'Dulce de Leche'),(2,'Rojo'),(3,'Rosa'),(4,'Verde'),(5,'Nueces'),(6,'Almendras'),(7,'Coco'),(8,'Chips Chocolate Negro'),(9,'Chips Chocolate Blanco'),(10,'Marroc'),(11,'Nugget'),(12,'Baño Chocolate Negro'),(13,'Frutos Del Bosque'),(14,'Baño Chocolate Blanco');
+INSERT INTO `producto_detalle` VALUES (1,'Dulce de Leche'),(2,'Color Rojo'),(3,'Color Rosa'),(4,'Color Verde'),(5,'Nueces'),(6,'Almendras'),(7,'Coco'),(8,'Chips Chocolate Negro'),(9,'Chips Chocolate Blanco'),(10,'Marroc'),(11,'Nugget'),(12,'Baño Chocolate Negro'),(13,'Frutos Del Bosque'),(14,'Baño Chocolate Blanco');
 /*!40000 ALTER TABLE `producto_detalle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,6 +290,40 @@ CREATE TABLE `producto_pedido` (
 LOCK TABLES `producto_pedido` WRITE;
 /*!40000 ALTER TABLE `producto_pedido` DISABLE KEYS */;
 /*!40000 ALTER TABLE `producto_pedido` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tracking_pedido`
+--
+
+DROP TABLE IF EXISTS `tracking_pedido`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tracking_pedido` (
+  `id` int(11) NOT NULL,
+  `fecha` datetime DEFAULT NULL,
+  `idPedido` int(11) DEFAULT NULL,
+  `idEstadoPedido` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_trackingpedido_Pedido_idx` (`idPedido`),
+  KEY `FK_trackingpedido_Pedido_idx1` (`idPedido`),
+  KEY `FK_trackingpedido_Pedido_idx_1` (`idPedido`),
+  KEY `FK_tracking_pedido_idx` (`idPedido`),
+  KEY `FK_tracking_pedido_idx3` (`idPedido`),
+  KEY `FK_tracking_estadoPedido_idx` (`idEstadoPedido`),
+  KEY `FK_tracking_estadoPedido_idx3` (`idEstadoPedido`),
+  CONSTRAINT `FK_tracking_estadoPedido` FOREIGN KEY (`idEstadoPedido`) REFERENCES `estado_pedido` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_tracking_pedido` FOREIGN KEY (`idPedido`) REFERENCES `pedido` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tracking_pedido`
+--
+
+LOCK TABLES `tracking_pedido` WRITE;
+/*!40000 ALTER TABLE `tracking_pedido` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tracking_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -302,4 +362,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-03 12:48:14
+-- Dump completed on 2017-08-09 15:39:29

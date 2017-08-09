@@ -21,7 +21,7 @@ public class PantallaMenu extends Activity {
 
     List<String> groupList;
     List<String> childList;
-    Map<String, List<String>> laptopCollection;
+    Map<String, List<String>> MenuCollection;
     ExpandableListView expListView;
 
     @Override
@@ -35,7 +35,7 @@ public class PantallaMenu extends Activity {
 
         expListView = (ExpandableListView) findViewById(R.id.ExpListView);
         final ExpandableListAdapter expListAdapter = new ExpandableListAdapter(
-                this, groupList, laptopCollection);
+                this, groupList, MenuCollection);
         expListView.setAdapter(expListAdapter);
 
         //setGroupIndicatorToRight();
@@ -68,22 +68,22 @@ public class PantallaMenu extends Activity {
         String[] ProductosModels = { "Alfajores", "Cubanitos", "Tarta de Coco", "Muffins", "Chocotorta" };
         String[] MisDatosModels = { "Datos Personales", "Direcciones"};
 
-        laptopCollection = new LinkedHashMap<String, List<String>>();
+        MenuCollection = new LinkedHashMap<String, List<String>>();
 
-        for (String laptop : groupList) {
-            if (laptop.equals("Pedidos")) {
+        for (String item : groupList) {
+            if (item.equals("Pedidos")) {
                 loadChild(PedidosModels);
-            } else if (laptop.equals("Productos"))
+            } else if (item.equals("Productos"))
                 loadChild(ProductosModels);
-            else if (laptop.equals("Mis Datos"))
+            else if (item.equals("Mis Datos"))
                 loadChild(MisDatosModels);
-            laptopCollection.put(laptop, childList);
+            MenuCollection.put(item, childList);
         }
     }
 
-    private void loadChild(String[] laptopModels) {
+    private void loadChild(String[] itemModels) {
         childList = new ArrayList<String>();
-        for (String model : laptopModels)
+        for (String model : itemModels)
             childList.add(model);
     }
 
